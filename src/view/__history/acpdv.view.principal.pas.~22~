@@ -1,0 +1,138 @@
+unit acpdv.view.principal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Buttons, Vcl.ExtCtrls, Data.DB,
+  Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Imaging.pngimage, acpdv.view.login,
+  Vcl.WinXCtrls;
+
+type
+  TpagePrincipal = class(TForm)
+    pnlContainer: TPanel;
+    pnlTopo: TPanel;
+    pnlRodape: TPanel;
+    pnlMain: TPanel;
+    pnlOperacoes: TPanel;
+    pnlGrid: TPanel;
+    pnlCancelarOp: TPanel;
+    shapeCancelarOp: TShape;
+    btnCancelarOp: TSpeedButton;
+    pnlConsultarPreco: TPanel;
+    shapeConsultarPreco: TShape;
+    btnConsultarPreco: TSpeedButton;
+    pnlAbrirCaixa: TPanel;
+    shapeAbrirCaixa: TShape;
+    btnAbrirCaixa: TSpeedButton;
+    pnlCancelarVenda: TPanel;
+    shapeCancelarVenda: TShape;
+    btnCancelarVenda: TSpeedButton;
+    pnlCancelarItem: TPanel;
+    shapeCancelarItem: TShape;
+    btnCancelarItem: TSpeedButton;
+    pnlMaisFuncoes: TPanel;
+    shapeMaisFuncoes: TShape;
+    btnMaisFuncoes: TSpeedButton;
+    gridProdutos: TDBGrid;
+    pnlTotalCompra: TPanel;
+    lblTituloTotalCompra: TLabel;
+    shapeTotalCompra: TShape;
+    pnlEdtTotalCompra: TPanel;
+    lblTotalCompra: TLabel;
+    pnlSubTtotal: TPanel;
+    lblTituloSubTotal: TLabel;
+    pnlEdtSubTotal: TPanel;
+    shapeSubTotal: TShape;
+    lblSubTotal: TLabel;
+    pnlQuantidade: TPanel;
+    lblTituloQuantidade: TLabel;
+    pnlEdtQuantidade: TPanel;
+    shapeQuantidade: TShape;
+    edtQuantidade: TEdit;
+    pnlPreco: TPanel;
+    lblTituloPreco: TLabel;
+    pnlEdtPreco: TPanel;
+    shapePreco: TShape;
+    lblPreco: TLabel;
+    pnlProduto: TPanel;
+    lblTituloProduto: TLabel;
+    pnlEdtProduto: TPanel;
+    shapeProduto: TShape;
+    edtProduto: TEdit;
+    pnlImage: TPanel;
+    imgProduto: TImage;
+    pnlMaster: TPanel;
+    SplitViewFuncoes: TSplitView;
+    pnlContainerSplitView: TPanel;
+    pnlInformarCPF: TPanel;
+    shapeInformarCPF: TShape;
+    pnlNovaVenda: TPanel;
+    shapeNovaVenda: TShape;
+    Panel2: TPanel;
+    Shape2: TShape;
+    Panel3: TPanel;
+    Shape3: TShape;
+    Panel4: TPanel;
+    Shape4: TShape;
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+  private
+    FLogin: TPageLogin;
+    procedure MontarBotoes;
+  public
+    { Public declarations }
+  end;
+
+var
+  pagePrincipal: TpagePrincipal;
+
+implementation
+
+{$R *.dfm}
+
+procedure TpagePrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  FLogin.Free;
+end;
+
+procedure TpagePrincipal.FormCreate(Sender: TObject);
+begin
+  MontarBotoes;
+end;
+
+procedure TpagePrincipal.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  case Key of
+    VK_ESCAPE: ShowMessage('Cancelar Operação');
+    VK_F4: ShowMessage('Consultar Preço');
+    VK_F2: ShowMessage('Abrir Caixa');
+    VK_F5: ShowMessage('Cancelar Item');
+    VK_F6: ShowMessage('Cancelar Venda');
+    VK_F12: ShowMessage('Mais Funções');
+    VK_F7: ShowMessage('Fechar Venda');
+
+  end;
+end;
+
+procedure TpagePrincipal.FormShow(Sender: TObject);
+begin
+//  FLogin := TPageLogin.Create(nil);
+//  FLogin.Parent := pnlMaster;
+//  FLogin.Show;
+end;
+
+procedure TpagePrincipal.MontarBotoes;
+begin
+  btnCancelarOp.Caption := 'Cancelar Operação ' + ''#13'' + ' (ESC)';
+  btnConsultarPreco.Caption := 'Consultar Preço ' + ''#13'' + ' (F4)';
+  btnAbrirCaixa.Caption := 'Abrir Caixa ' + ''#13'' + ' (F2)';
+  btnCancelarVenda.Caption := 'Cancelar Venda ' + ''#13'' + ' (F6)';
+  btnCancelarItem.Caption := 'Cancelar Item ' + ''#13'' + ' (F5)';
+  btnMaisFuncoes.Caption := 'Mais Funções ' + ''#13'' + ' (F12)';
+end;
+
+end.

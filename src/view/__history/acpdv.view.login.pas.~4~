@@ -1,0 +1,43 @@
+unit acpdv.view.login;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.Imaging.jpeg,
+  Vcl.Buttons, Vcl.StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    pnlContainer: TPanel;
+    pnlLogin: TPanel;
+    pnlImage: TPanel;
+    pnlLogar: TPanel;
+    pnlTituloLogin: TPanel;
+    pnlEdtContainerUsuario: TPanel;
+    lblUsuário: TLabel;
+    shapeUsuario: TShape;
+    edtUsuario: TEdit;
+    pnlContainerSenha: TPanel;
+    lblSenha: TLabel;
+    shapeSenha: TShape;
+    edtSenha: TEdit;
+    pnlContainerBotao: TPanel;
+    pnlBotaoLogar: TPanel;
+    shapeBotaoLogar: TShape;
+    btnLogar: TSpeedButton;
+    Image1: TImage;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+end.
